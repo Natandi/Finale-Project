@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accessible Locations</title>
+
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+      #map {
+        height: 400px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Accessible Places</h1>
+
+    <!-- 🗺️ Map Container -->
+    <div id="map"></div>
+
+    <!-- 🔁 JavaScript to populate markers -->
+    <script>
+      var map = L.map('map').setView([-15.416, 28.281], 13);  // Center on Lusaka
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      {% for location in locations %}
+        L.marker([{{ location.latitude }}, {{ location.longitude }}])
+          .addTo(map)
+          .bindPopup("<strong>{{ location.name }}</strong><br>{{ location.address }}");
+      {% endfor %}
+    </script>
+
+    <!-- 📍 List of Locations -->
+    <ul>
+      {% for location in locations %}
+      <li>
+        <strong>{{ location.name }}</strong><br />
+        {{ location.address }}<br />
+        Features:
+        <ul>
+          {% for feature in location.features.all %}
+          <li>{{ feature.name }}</li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

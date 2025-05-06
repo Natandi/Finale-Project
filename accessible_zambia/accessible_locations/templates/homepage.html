@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Accessible Zambia</title>
+    <style>
+        /* General Body and Background Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #8A4D76, #7A3B5D);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar Styles */
+        nav {
+            background-color: #5D1F6C;
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            font-size: 1.1em;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #E1C6F5;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 50px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+        }
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Content Styles */
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-grow: 2;
+        }
+        .cta-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+        }
+        .cta-container h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #E1C6F5;
+        }
+        .cta-container p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #D0A9E0;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #5D1F6C;
+            text-align: center;
+            padding: 20px 0;
+            color: #fff;
+        }
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#browse-listings">Browse Listings</a></li>
+            <li><a href="#get-info">Get Information</a></li>
+            <li><a href="#submit-location">Submit Location</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Welcome to Accessible Zambia</h1>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="cta-container">
+            <h2>Discover Accessible Locations in Zambia</h2>
+            <p>Browse listings, get information, and submit your own locations to help others discover accessible spots.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Accessible Zambia. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
