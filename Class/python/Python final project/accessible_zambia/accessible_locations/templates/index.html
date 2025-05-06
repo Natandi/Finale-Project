@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accessible Locations</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <h1>Accessible Places</h1>
+    <ul>
+      {% for location in locations %}
+      <li>
+        <strong>{{ location.name }}</strong><br />
+        {{ location.address }}<br />
+        Features:
+        <ul>
+          {% for feature in location.features.all %}
+          <li>{{ feature.name }}</li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
